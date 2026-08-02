@@ -1,4 +1,12 @@
-# Sensor Reporter Python API
+# Sensor Reporter - Python API
+
+## Prerequisites
+
+To use this library, you need the **Sensor Reporter App** installed on your Android device.
+
+1. **Download:** Get the latest APK from the [Android App Repository](https://github.com/frqdtjqf/sensor_reporter/releases).
+2. **Setup:** Ensure both your PC and Android device are on the same Wi-Fi network.
+
 This Project provides a python api package to communicate with the sensor reporter android app.
 
 It is able to read sensor data of all Hardware Sensors and provides them via a websocket for the user to read. They are neatly wrapped in a NumericSensor class which handles communication protocols and provides an interface to get the sensor data.
