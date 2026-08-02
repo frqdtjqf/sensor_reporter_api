@@ -1,0 +1,22 @@
+[project]
+name = "sensor-reporter-api"
+version = "0.1.0"
+description = "Serves as a python package counterpart to the android app. Supports sensor control via websockets."
+readme = "README.md"
+authors = [
+    { name = "Fridtjof Pernack" }
+]
+requires-python = ">=3.12.3"
+dependencies = [
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.1",
+    "opencv-python>=5.0.0.93",
+    "websockets>=17.0.1",
+]
+
+[project.scripts]
+sensor-reporter-api = "sensor_reporter_api:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
