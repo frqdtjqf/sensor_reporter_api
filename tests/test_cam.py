@@ -1,4 +1,4 @@
-from sensor_reporter_api.src.sensor_reporter_api import Phone, SensorEvents, Logger
+from sensor_reporter_api import Phone, SensorEvents, Logger
 import asyncio
 
 IP = "localhost"
@@ -66,6 +66,10 @@ async def main():
     await cam.stop_stream()
 
     await cam.capture()
+
+    await asyncio.sleep(5)
+
+    await cam.start_stream()
 
     await asyncio.Event().wait()
 
