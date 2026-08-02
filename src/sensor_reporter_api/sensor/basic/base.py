@@ -5,8 +5,7 @@ from sensor_reporter_api.api import (
     SensorStatus,
     ServerDataTypes
 )
-from sensor_reporter_api.src.sensor_reporter_api.debug_tools import Logger
-import websockets
+from sensor_reporter_api.debug_tools import Logger
 
 import json
 from collections import defaultdict

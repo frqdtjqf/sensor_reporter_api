@@ -12,6 +12,15 @@ class Camera(SpecialSensor):
         )
         return img
 
+    async def _send_acknowledge_action(self, action: str, **payload):
+        """
+        Sends an action that needs to be acknowledged at data channel.
+        """
+        await self._send_action(action, **payload)
+        await self._wait_for_status(SensorStatus.AWAIT, timeout=5.0)
+        await self._send_acknowledge()
+        await self._wait_for_status(SensorStatus.READY, timeout=5.0)
+
     async def _send_acknowledge_configure(self, settings: dict, timeout: float = 5.0):
         """
         Sends a configuration to the camera sensor when not streaming.
@@ -41,7 +50,7 @@ class Camera(SpecialSensor):
         await self._send_stream_stop()
 
     async def _send_capture(self):
-        await self._send_action("capture")
+        await self._send_acknowledge_action("capture")
 
     async def capture(self):
         """
